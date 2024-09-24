@@ -64,3 +64,6 @@
     margin: auto;
     cursor: pointer;
 }
+.filter {
+    display: flex;
+}
