@@ -1,4 +1,4 @@
-import React from "react";
+import React,{lazy} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -20,7 +20,13 @@ const HeadingComponent = () => (
     <h1 className="heading">Namaste</h1>
 );
 */
+// Chunking
+// Code splitting
+// Dynamic bundling
+// Lazy loading- when the main code loads initially, when we go to the link then only that component loads
+// On demand loading 
 
+//const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
     return (

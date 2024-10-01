@@ -1,14 +1,16 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard , {withPromotedLabel} from "./RestaurantCard";
 import resList from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
     //Local state variable- super powerful variable
     const [listOfRestaurants, setListOfRestaurant] = useState([]);
     const [filteredRestaurant, setFilteredRestaurant] = useState([]);
     const [searchText, setSearchText] = useState("");
+    const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
    
     useEffect( ()=>{
         fetchData();
@@ -24,6 +26,14 @@ const Body = () => {
         console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
         setFilteredRestaurant(json?.data?.cards[4].card.card.gridElements.infoWithStyle.restaurants);
     }; 
+
+    if(useOnlineStatus === false){
+        return(
+            <h1>Looks like you'r offline. Please check your internet connection!!</h1>
+        );
+    }
+
+
     //conditional rendering
     if(listOfRestaurants.length === 0){
       // return <h1>Loading....</h1>
@@ -34,13 +44,14 @@ const Body = () => {
    
     return(
         <div className="body">
-            <div className="filter">
-                <div className="search">
-                    <input type="text" className="search-box" value={searchText} 
+            <div className="filter flex">
+                <div className="search m-4 p-4">
+                    <input type="text" className="border border-solid border-black" value={searchText} 
                     onChange={(e)=>{
                         setSearchText(e.target.value);
                     }}/>
-                    <button onClick={()=>{
+                    <button className="px-4 py-2 bg-green-100 m-4 rounded-md" 
+                        onClick={()=>{
                         //filter the restaurant cards and update UI
                         //searchText
                         //Value is bind to searchText and this searchText is empty so i cant type anything
@@ -50,27 +61,34 @@ const Body = () => {
                         setFilteredRestaurant(filteredRestaurant);
                     }}>Search</button>
                 </div>
-                <button 
-                className="filter-btn"
-                onClick={ ()=> {
-                    const filteredList = listOfRestaurants.filter(
-                        (res) => res.info?.avgRating > 4
-                    );
+                <div className="search m-4 p-4 flex items-center">
+                    <button 
+                         className="px-4 py-2 bg-green-100 rounded-md"
+                            onClick={ ()=> {
+                            const filteredList = listOfRestaurants.filter(
+                            (res) => res.info?.avgRating > 4
+                          );
 
-                    //console.log(filteredList);
-                    setListOfRestaurant(filteredList);
-                } }
-                >
-                Top Rated Restaurants  
-                </button>
+                         //console.log(filteredList);
+                        setListOfRestaurant(filteredList);
+                     } }
+                    >
+                    Top Rated Restaurants  
+                    </button>
+                </div>
+                
 
             </div>
-            <div className="res-container">
+            <div className="flex flex-wrap">
                 {
                     filteredRestaurant.map((restaurant) => (
                         <Link key={restaurant.info.id}
                         to={"/restaurants/" + restaurant.info.id}>
-                            <RestaurantCard resData={restaurant}/>
+                            
+                            {restaurant.info.promoted ? (
+                                <RestaurantCardPromoted resData={restaurant}/>
+                            ) : (<RestaurantCard resData={restaurant}/>
+                            )}
                             </Link>
                     ))
                 }
