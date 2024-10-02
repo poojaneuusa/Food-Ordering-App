@@ -1,4 +1,4 @@
-import React,{lazy} from "react";
+import React,{lazy, useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -7,6 +7,7 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
+import UserContext from "./utils/UserContext";
 
 // React Element
 /*
@@ -29,11 +30,29 @@ const HeadingComponent = () => (
 //const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
+
+    //authentication
+    const [userName, setUserName] = useState();
+
+    useEffect(() => {
+        //Make an API call and send username and password
+        const data = {
+            name: "Akshay Saini",
+        };
+        setUserName(data.name);
+    }, []);
+
+
     return (
-        <div className="app">
-            <Header/>
-            <Outlet/> {/* This will render the children components based on route */}
-        </div>
+        <UserContext.Provider value={{loggedInUser: userName}}>
+
+            <div className="app">
+                <Header/>
+                <Outlet/> {/* This will render the children components based on route */}
+            </div>
+
+        </UserContext.Provider>
+        
 
     );
 }

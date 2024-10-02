@@ -1,7 +1,9 @@
 import User from "./User";
 import UserClass from "./UserClass";
 import {Component} from "react";
+import UserContext from "../utils/UserContext";
 
+//Class based components dont use hooks
 class About extends Component {
     constructor(props){
         super(props);
@@ -20,6 +22,12 @@ class About extends Component {
             
             <div>
                 <h1>About Us</h1>
+                <div>
+                    Logged In user:
+                    <UserContext.Consumer>
+                        {({loggedInUser})=> <h1 className="font-semibold">{loggedInUser}</h1>}
+                    </UserContext.Consumer>
+                </div>
                 <h2>
                     <UserClass name={"First Child"} location={"Boston (class)"}/>
                     
