@@ -1,0 +1,77 @@
+{
+    "info": {
+        "id": "709119",
+        "name": "Irani Std. Tea",
+        "cloudinaryImageId": "1e756ee8d230b65d570f7e8e70f7062c",
+        "locality": "6th Main Rd",
+        "areaName": "Indiranagar",
+        "costForTwo": "₹200 for two",
+        "cuisines": [
+            "Beverages",
+            "Snacks",
+            "Fast Food"
+        ],
+        "avgRating": 4.2,
+        "parentId": "374583",
+        "avgRatingString": "4.2",
+        "totalRatingsString": "643",
+        "sla": {
+            "deliveryTime": 32,
+            "lastMileTravel": 6.7,
+            "serviceability": "SERVICEABLE",
+            "slaString": "30-35 mins",
+            "lastMileTravelString": "6.7 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2024-10-12 00:00:00",
+            "opened": true
+        },
+        "badges": {},
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {},
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "ITEMS",
+            "subHeader": "AT ₹79"
+        },
+        "orderabilityCommunication": {
+            "title": {},
+            "subTitle": {},
+            "message": {},
+            "customIcon": {}
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {},
+        "externalRatings": {
+            "aggregatedRating": {
+                "rating": "--"
+            }
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+    },
+    "analytics": {
+        "context": "seo-data-030e8fe3-967c-4097-ae6f-aacc2ebdf949"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/city/bangalore/irani-std-tea-6th-main-rd-indiranagar-rest709119",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+    },
+    "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+}

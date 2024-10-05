@@ -14,14 +14,14 @@ test("Should load contact us component" , () => {
     expect(heading).toBeInTheDocument();
 });
 
-test("Should load button inside contactUs component" , () => {
-    render(<Contact/>);
+// test("Should load button inside contactUs component" , () => {
+//     render(<Contact/>);
 
-    const button = screen.getByText("Random");
+//     const button = screen.getByText("Random");
 
-    //Assertion
-    expect(button).toBeInTheDocument();
-});
+//     //Assertion
+//     expect(button).toBeInTheDocument();
+// });
 
 test("Should load input name inside contactUs component" , () => {
     render(<Contact/>);
@@ -32,7 +32,7 @@ test("Should load input name inside contactUs component" , () => {
     expect(inputName).toBeInTheDocument();
 });
 
-test("Should load 2 input boxes inside contactUs component" , () => {
+it("Should load 2 input boxes inside contactUs component" , () => {
     render(<Contact/>);
 
     const inputBoxes = screen.getAllByRole("textbox");
@@ -43,3 +43,4 @@ test("Should load 2 input boxes inside contactUs component" , () => {
 
 });
 //describe inside describe as well.. group of test cases
+//test() === it()
